@@ -56,6 +56,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Suppress Azure SDK verbose logging (only show warnings and errors)
+logging.getLogger('azure').setLevel(logging.WARNING)
+logging.getLogger('azure.core.pipeline.policies.http_logging_policy').setLevel(logging.WARNING)
+
 
 # ============================================================================
 # SECTION 2: Helper Functions
@@ -139,7 +143,7 @@ def format_document_content(result) -> str:
                     output.append(content)
         
         # Add page separator
-        output.append("\n\n---\n\n")
+        output.append("\n---\n")
     
     # Handle paragraphs (extracted from result.paragraphs if available)
     if hasattr(result, 'paragraphs') and result.paragraphs:
@@ -319,14 +323,14 @@ if all_documents:
     try:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             # Write header
-            f.write(f"# Extracted PDF Notes\n\n")
-            f.write(f"**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
-            f.write(f"**Total Documents:** {len(all_documents)}\n\n")
-            f.write(f"**Total Pages:** {stats['total_pages']}\n\n")
-            f.write("---\n\n")
-            
+            f.write(f"# Extracted PDF Notes\n")
+            f.write(f"**Generated:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"**Total Documents:** {len(all_documents)}\n")
+            f.write(f"**Total Pages:** {stats['total_pages']}\n")
+            f.write("---\n")
+
             # Write all documents
-            f.write("\n\n".join(all_documents))
+            f.write("\n".join(all_documents))
         
         logger.info(f"[SUCCESS] Output saved to: {OUTPUT_FILE}")
     except Exception as e:

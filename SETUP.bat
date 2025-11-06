@@ -1,10 +1,13 @@
 @echo off
+REM Change to the directory where this batch file is located
+cd /d "%~dp0"
+
 echo ========================================
 echo PDF Text Extractor - Setup
 echo ========================================
 echo.
 
-echo [1/3] Checking Python installation...
+echo [1/4] Checking Python installation...
 python --version
 if errorlevel 1 (
     echo [ERROR] Python is not installed or not in PATH!
@@ -14,7 +17,17 @@ if errorlevel 1 (
 )
 
 echo.
-echo [2/3] Installing required packages...
+echo [2/4] Creating virtual environment...
+if not exist venv (
+    python -m venv venv
+    echo [SUCCESS] Virtual environment created
+) else (
+    echo [INFO] Virtual environment already exists
+)
+
+echo.
+echo [3/4] Installing required packages...
+call venv\Scripts\activate.bat
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
@@ -25,7 +38,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [3/3] Creating environment file...
+echo [4/4] Creating environment file...
 if not exist .env (
     copy .env.example .env
     echo [INFO] Created .env file from template
@@ -44,4 +57,6 @@ echo 1. Edit .env file with your Azure credentials
 echo 2. Place PDF files in the configured folder
 echo 3. Run RUN.bat to start processing
 echo.
-pause
+
+REM Only pause if run from double-click (not from terminal)
+if "%TERM_PROGRAM%"=="" pause

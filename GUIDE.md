@@ -54,7 +54,7 @@ This guide will walk you through setting up and using the PDF Text Extractor ste
 3. **Configure Resource:**
    - **Subscription:** Select your subscription
    - **Resource Group:** Create new or use existing
-   - **Region:** Choose closest to you (e.g., "East US")
+   - **Region:** Choose closest to you (e.g., "Southeast Asia")
    - **Name:** Give it a unique name (e.g., "pdf-extractor-ai")
    - **Pricing Tier:** 
      - **Free (F0):** 500 pages/month free

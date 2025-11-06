@@ -6,13 +6,13 @@ Extract and format text from PDF lecture notes and textbooks using Azure AI Docu
 
 This tool processes PDF documents (lecture notes, textbooks, research papers) and converts them into well-formatted Markdown files with preserved structure including:
 
-- ✅ **Continuous text flow** (book-style reading)
-- ✅ **Chapter and section detection**
-- ✅ **Proper reading order**
-- ✅ **Tables and lists**
-- ✅ **Headings hierarchy**
-- ✅ **Smart caching** (avoid re-processing)
-- ✅ **Professional logging**
+- **Continuous text flow** (book-style reading)
+- **Chapter and section detection**
+- **Proper reading order**
+- **Tables and lists**
+- **Headings hierarchy**
+- **Smart caching** (avoid re-processing)
+- **Professional logging**
 
 ## Key Differences from Slide-Text-Extractor
 
@@ -27,12 +27,12 @@ This tool processes PDF documents (lecture notes, textbooks, research papers) an
 
 ## Features
 
-- 🔄 **Smart Processing**: Automatically skips already-processed PDFs
-- 📊 **Detailed Logging**: Professional logging with timestamps and statistics
-- 🎯 **Structure Preservation**: Maintains headings, paragraphs, lists, and tables
-- ⚡ **Fast & Efficient**: Caching system for instant re-runs
-- 🔐 **Secure**: Environment variables for API credentials
-- 📝 **Clean Output**: Beautiful Markdown format for easy reading
+- **Smart Processing**: Automatically skips already-processed PDFs
+- **Detailed Logging**: Professional logging with timestamps and statistics
+- **Structure Preservation**: Maintains headings, paragraphs, lists, and tables
+- **Fast & Efficient**: Caching system for instant re-runs
+- **Secure**: Environment variables for API credentials
+- **Clean Output**: Beautiful Markdown format for easy reading
 
 ## Prerequisites
 
@@ -157,21 +157,14 @@ Example: A 50-page textbook costs ~$0.075 to process.
 ## Troubleshooting
 
 ### Import Errors
-
-Make sure you've installed all dependencies:
-
-```bash
-pip install -r requirements.txt
-```
+Make sure you've installed all dependencies
 
 ### API Authentication Failed
-
 - Verify your `.env` file has correct credentials
 - Check that your Azure resource is active
 - Ensure your API key hasn't expired
 
 ### No PDFs Found
-
 - Check that `PDF_FOLDER_PATH` in `.env` points to the correct folder
 - Ensure PDF files exist in that folder
 - Verify folder path uses forward slashes or double backslashes
@@ -216,7 +209,7 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Created by **Lakindu** - AI Projects
+Created by **Lakindu Sadumina - github.com/lakipop** - AI Projects
 
 ---
 
